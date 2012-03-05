@@ -58,7 +58,7 @@ Then you will get a file named *print_r.pyc* and place the one in your installat
 
 	print_r(instance);
 	print_r(obj);
-	print_r(list);
+	print_r([1, 2, 3]);
 
 *Result:*
 
@@ -72,7 +72,7 @@ Then you will get a file named *print_r.pyc* and place the one in your installat
 	------------------------------
 	{
 		instance: {
-			foo: 10
+			foo: 1
 		},
 		number: 1,
 		object: {
@@ -97,14 +97,13 @@ If you set the second parameter <view> in boolean value True, you will get an al
 
 	class
 	------------------------------
-	<class '__main__.Class'>
+	[instance] => {
+		[foo] => 1
+	}
 
 	dict
 	------------------------------
 	{
-		[instance] => {
-			[foo] => 1
-		},
 		[number] => 1,
 		[object] => {
 			[list] : [
