@@ -2,7 +2,7 @@
 
 This module provides a function that prints human-readable information about the object
 
-##Prototype:
+##Synopsis
 	string print_r (mixed object [, bool view = False])
 
 ##Installation
