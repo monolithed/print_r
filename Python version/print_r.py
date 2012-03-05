@@ -6,7 +6,7 @@
 - @version: 1.0
 - @params: {mixed} The Object to be printed
 - @params: {view} Optional boolean parameter to set an alternative view
-- @return string
+- @return string represented by standard output function print()
 - @license: MIT
 - @date: 2/27/12 9:28 PM
 '''
@@ -45,4 +45,4 @@ def print_r(obj, view = 0):
 				data.append(obj)
 
 		return ''.join(map(str, data))
-	return build(obj)
+	print(build(obj))

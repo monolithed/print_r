@@ -19,4 +19,4 @@ obj = {
 #Example
 for i in [['class', Class], ['dict', obj], ['list', [1, 2, 3]]]:
 	print('\n', i[0], '\n', '-' * 30)
-	print(print_r(i[1], 1))
+	print_r(i[1])
