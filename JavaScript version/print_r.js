@@ -3,7 +3,7 @@
  * string print_r (mixed object [, boolean view = false])
  * Prints human-readable information about the object
  * @author: Alexander Guinness
- * @version: 1.0
+ * @version: 1.1
  * @params: {mixed} The Object to be printed
  * @params: {view} Optional boolean parameter to set an alternative view
  * @return String
@@ -11,41 +11,61 @@
  * @date: 2/27/12 9:28 PM
 **/
 
-function print_r(object, view) {
-	return function self(object, indent) {
-		var type = Object.prototype.toString.call(object),
-			data = [];
+var print_r = function(data, view) {
+	/*
+	- string build (mixed data [, string indent = ''])
+	*/
+	return function build(data, indent) {
+		return {
+			init: function() {
+				if (this.type(data) === 'object')
+					this.depth(0);
 
-		if (type === '[object Array]' && !indent) {
-			var i = object.length;
+				else if (this.type(data) === 'array')
+					this.depth(1);
 
-			while (i--)
-				data.unshift('[', i, '] => ', object[i], '\n');
-		}
-		else {
-			if (type === '[object Object]') {
+				else
+					this.output.push({
+						'string':   '"' + data + '"',
+						'function': data.toString().replace(/\b.*\n|\}/g, '\t$&').replace(/^\t/, ' ')
+					}[this.type(data)] || data);
+
+				return this.output.join('');
+			},
+
+			output : [],
+
+			/*
+			 - string type (object type)
+			 */
+			type: function(type) {
+				return Object.prototype.toString.call(type).replace(/object|[\[\]\s]/g, '').toLowerCase();
+			},
+
+			/*
+			 - string type (mixed key, boolean array)
+			 */
+			get_view: function(key, array) {
+				return (view || array ? ['\t[', key, '] => '] : ['\t', key, ': ']).join('');
+			},
+
+			/*
+			 - void depth (number array)
+			 */
+			depth: function(array) {
 				indent = indent || '';
 
-				var get_view = function(i) {
-					return (view ? ['\t[', i, '] => '] : ['\t', i, ': ']).join('');
-				},
-				block = ['{\n'];
+				var brace = [['{', '}'], ['[', ']']][array],
+					block = [brace[0], '\n'];
 
-				for (var i in object)
-					block.push(indent, get_view(i), self(object[i], indent + '\t'), ',', '\n');
+				for (var i in data)
+					block.push(indent, this.get_view(i, array), build(data[i], indent + '\t'), ',', '\n');
 
 				block.splice(-2, 1);
-				data.push(block.join(''), indent, '}');
+				this.output.push(block.join(''), indent, brace[1]);
 			}
-			else {
-				data.push({
-					'[object String]': '"' + object + '"',
-					'[object Array]' : '[' + object + ']'
-				}[type] || object);
-			}
-		}
-		return data.join('');
-	}(object);
-}
+		}.init();
+	}(data);
+};
 
-//exports.toCSS
+//exports.print_r = print_r

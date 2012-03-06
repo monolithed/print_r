@@ -2,7 +2,10 @@
 
 This module provides a function that prints human-readable information about the object
 
-##Prototype:
+##License
+	MIT
+
+##Synopsis:
 	string print_r (mixed object [, boolean view = false])
 
 ## Use
@@ -36,7 +39,7 @@ This module provides a function that prints human-readable information about the
 
 	console.log(print_r(instance));
 	console.log(print_r(object));
-	console.log(print_r([1, 2, 3]));
+	console.log(print_r([1, 2, instance]));
 
 *Result:*
 
@@ -68,9 +71,17 @@ This module provides a function that prints human-readable information about the
 
 	array
 	------------------------------
-	[0] => 1
-	[1] => 2
-	[2] => 3
+	[
+		[0] => 1,
+		[1] => 2,
+		[2] => {
+			a: 1,
+			b: 2,
+			method:  function () {
+				return this;
+			}
+		}
+	]
 
 If you set the second parameter <view> in boolean value True, you will get an alternate view.<br />
 
@@ -104,10 +115,17 @@ If you set the second parameter <view> in boolean value True, you will get an al
 
 	array
 	------------------------------
-	[0] => 1
-	[1] => 2
-	[2] => 3
-
+	[
+		[0] => 1,
+		[1] => 2,
+		[2] => {
+			[a] => 1,
+			[b] => 2,
+			[method] =>  function () {
+				return this;
+			}
+		}
+	]
 
 * License
     The toCSS module is licensed under the MIT (MIT_LICENSE.txt) license.
