@@ -4,8 +4,8 @@
 - Prints human-readable information about the object
 - @author: Alexander Guinness
 - @version: 1.1
-- @params: {mixed} The Object to be printed
-- @params: {view} Optional boolean parameter to set an alternative view
+- @params: {mixed} the Object to be printed
+- @params: {bool} view - optional parameter to set an alternative view
 - @return string represented by standard output function print()
 - @license: PSF, MIT
 - @date: 2/27/12 9:28 PM
@@ -67,7 +67,7 @@ class main:
 			block.extend([indent, self.get_view(key, is_list), self.build(value, indent + '\t'), ',', '\n'])
 
 		block.pop(-2)
-		output.extend([''.join(block), indent, brace[1]])
+		return output.extend([''.join(block), indent, brace[1]])
 
 	def get_view(self, key, is_list):
 		'''

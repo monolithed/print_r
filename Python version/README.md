@@ -2,6 +2,9 @@
 
 This module provides a function that prints human-readable information about the object
 
+##License
+	PSF, MIT
+
 ##Synopsis
 	string print_r (mixed object [, bool view = False])
 
@@ -123,6 +126,6 @@ If you set the second parameter <view> in boolean value True, you will get an al
 
 
 * License
-    The toCSS module is licensed under the MIT (MIT_LICENSE.txt) license.
+    The print_r module is licensed under the MIT (MIT_LICENSE.txt) license.
 
 * Copyright (c) 2011 [Alexander Guinness] (https://github.com/monolithed)
