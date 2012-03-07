@@ -20,9 +20,7 @@ print = require './print_r.coffee'
 
 		other: ->
 			@property = 1
-
-			@method = () ->
-			 @
+			@method = () -> @
 
 	class Foo
 		constructor: (@name) ->
