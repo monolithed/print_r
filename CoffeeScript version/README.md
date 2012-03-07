@@ -1,4 +1,4 @@
-# toCSS
+# print_r
 
 Prints human-readable information about the object
 
@@ -64,6 +64,6 @@ print = require './print_r.coffee'
 
 
 * License
-    The toCSS module is licensed under the MIT (MIT_LICENSE.txt) license.
+    The print_r module is licensed under the MIT (MIT_LICENSE.txt) license.
 
 * Copyright (c) 2011 [Alexander Guinness] (https://github.com/monolithed)
