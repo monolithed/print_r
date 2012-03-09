@@ -41,7 +41,7 @@ print_r = (data, view) ->
 			 - string type (object type)
 			 ###
 			type: (type) ->
-				Object.prototype.toString.call(type).replace(/object|[\[\]\s]/g, '').toLowerCase()
+				Object::toString.call(type).replace(/object|[\[\]\s]/g, '').toLowerCase()
 
 			###
 			 - string type (mixed key, boolean array)
