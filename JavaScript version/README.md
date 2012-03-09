@@ -49,46 +49,47 @@ console.log(print_r([1, 2, instance]));
 
 *Result:*
 
-	class
-	------------------------------
-	{
-		a: 1,
-		b: 2,
+```javascript
+class
+------------------------------
+{
+	a: 1,
+	b: 2,
+	method: function () {
+		return this;
+	}
+}
+
+object
+------------------------------
+{
+	number: 1,
+	object: {
+		string: "text",
+		array: [1,2]
+	},
+	other: {
+		property: 10,
 		method: function () {
 			return this;
 		}
 	}
+}
 
-	object
-	------------------------------
-	{
-		number: 1,
-		object: {
-			string: "text",
-			array: [1,2]
-		},
-		other: {
-			property: 10,
-			method: function () {
-				return this;
-			}
+array
+------------------------------
+[
+	[0] => 1,
+	[1] => 2,
+	[2] => {
+		a: 1,
+		b: 2,
+		method:  function () {
+			return this;
 		}
 	}
-
-	array
-	------------------------------
-	[
-		[0] => 1,
-		[1] => 2,
-		[2] => {
-			a: 1,
-			b: 2,
-			method:  function () {
-				return this;
-			}
-		}
-	]
-
+]
+```
 If you set the second parameter <view> in boolean value True, you will get an alternate view.<br />
 
 *Result:*
