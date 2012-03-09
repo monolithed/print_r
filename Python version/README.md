@@ -6,7 +6,10 @@ This module provides a function that prints human-readable information about the
 	PSF, MIT
 
 ##Synopsis
-	string print_r (mixed object [, bool view = False])
+
+```python
+string print_r (mixed object [, bool view = False])
+```
 
 ##Installation
 
@@ -14,116 +17,131 @@ This module provides a function that prints human-readable information about the
 
 Download the module from: http://pypi.python.org/pypi/pyprint_r/
 
-	# python setup.py install
+```python
+# python setup.py install
+```
 
 Or run using [easy_install] (http://packages.python.org/distribute/easy_install.html):
 
-	# easy_install pyprint_r
+```python
+# easy_install pyprint_r
+```
 
 *Include:*
 
+```python
 	from pyprint_r import print_r
+```
 
 NOTE: If you have not installed [setuptools] (http://pypi.python.org/pypi/setuptools) you should read about [Distribute] (http://packages.python.org/distribute/).
 
 *Distribute installation:*
 
-	curl -O http://python-distribute.org/distribute_setup.py
-	python distribute_setup.py
-	easy_install pip
+```python
+curl -O http://python-distribute.org/distribute_setup.py
+python distribute_setup.py
+easy_install pip
+```
 
 *2. Install using the compilation:*
 Create a *.py* file and include:
 
-	from print_r import *
+```python
+from print_r import *
+```
 
 Then you will get a file named *print_r.pyc* and place the one in your installation/working directory
 
 ## Use
 *For example you could use the following code:*
 
-	from print_r import *
+```python
+from print_r import *
 
-	class Class:
-		def __init__(self):
-			self.foo = 1
+class Class:
+	def __init__(self):
+		self.foo = 1
 
-	instance = Class()
+instance = Class()
 
-	obj = {
-		'number': 1,
-		'object': {
-			'string': "text",
-			'list' : [1, 2, 3]
-		},
-		'instance' : instance
-	};
+obj = {
+	'number': 1,
+	'object': {
+		'string': "text",
+		'list' : [1, 2, 3]
+	},
+	'instance' : instance
+};
 
-	print_r(instance);
-	print_r(obj);
-	print_r([1, 2, 3]);
+print_r(instance);
+print_r(obj);
+print_r([1, 2, 3]);
+```
 
 *Result:*
 
-	class
-	------------------------------
+```python
+class
+------------------------------
+instance: {
+	foo: 1
+},
+
+dict
+------------------------------
+{
 	instance: {
 		foo: 1
 	},
-
-	dict
-	------------------------------
-	{
-		instance: {
-			foo: 1
-		},
-		number: 1,
-		object: {
-			'list' : [
-				[0] => 1,
-				[1] => 2,
-				[2] => 3
-			],
-			string: "text"
-		}
+	number: 1,
+	object: {
+		'list' : [
+			[0] => 1,
+			[1] => 2,
+			[2] => 3
+		],
+		string: "text"
 	}
+}
 
-	list
-	------------------------------
-	[0] => 1
-	[1] => 2
-	[2] => 3
+list
+------------------------------
+[0] => 1
+[1] => 2
+[2] => 3
+```
 
 If you set the second parameter <view> in boolean value True, you will get an alternate view.<br />
 
 *Result:*
 
-	class
-	------------------------------
-	[instance] => {
-		[foo] => 1
+```python
+class
+------------------------------
+[instance] => {
+	[foo] => 1
+}
+
+dict
+------------------------------
+{
+	[number] => 1,
+	[object] => {
+		[list] : [
+			[0] => 1,
+			[1] => 2,
+			[2] => 3
+		]
+		[string] => "text"
 	}
+}
 
-	dict
-	------------------------------
-	{
-		[number] => 1,
-		[object] => {
-			[list] : [
-				[0] => 1,
-				[1] => 2,
-				[2] => 3
-			]
-			[string] => "text"
-		}
-	}
-
-	list
-	------------------------------
-	[0] => 1
-	[1] => 2
-	[2] => 3
-
+list
+------------------------------
+[0] => 1
+[1] => 2
+[2] => 3
+```
 
 * License
     The print_r module is licensed under the MIT (MIT_LICENSE.txt) license.
