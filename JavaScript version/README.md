@@ -6,40 +6,46 @@ This module provides a function that prints human-readable information about the
 	MIT
 
 ##Synopsis:
-	string print_r (mixed object [, boolean view = false])
+```javascript
+string print_r (mixed object [, boolean view = false])
+```
 
 ## Use
 *For example you could use the following code:*
 
-	var obj = {
-		number: 1,
-		object: {
-			string: "text",
-			array : [1, 2, 3]
-		},
-		other: new function() {
-			this.property = 10;
+##Synopsis:
 
-			this.method = function() {
-				return this;
-			}
-		}
-	};
-
-	var Class = function() {
-		this.a = 1;
-		this.b = 2;
+```javascript
+var obj = {
+	number: 1,
+	object: {
+		string: "text",
+		array : [1, 2, 3]
+	},
+	other: new function() {
+		this.property = 10;
 
 		this.method = function() {
 			return this;
 		}
-	};
+	}
+};
 
-	var instance = new Class;
+var Class = function() {
+	this.a = 1;
+	this.b = 2;
 
-	console.log(print_r(instance));
-	console.log(print_r(object));
-	console.log(print_r([1, 2, instance]));
+	this.method = function() {
+		return this;
+	}
+};
+
+var instance = new Class;
+
+console.log(print_r(instance));
+console.log(print_r(object));
+console.log(print_r([1, 2, instance]));
+```
 
 *Result:*
 
@@ -87,6 +93,7 @@ If you set the second parameter <view> in boolean value True, you will get an al
 
 *Result:*
 
+```javascript
 	class
 	------------------------------
 	{
@@ -126,6 +133,7 @@ If you set the second parameter <view> in boolean value True, you will get an al
 			}
 		}
 	]
+```
 
 * License
     The print_r module is licensed under the MIT (MIT_LICENSE.txt) license.
