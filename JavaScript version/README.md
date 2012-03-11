@@ -7,13 +7,11 @@ This module provides a function that prints human-readable information about the
 
 ##Synopsis:
 ```javascript
-string print_r (mixed object [, boolean view = false])
+String print_r (Mixed object [, Boolean view = false])
 ```
 
 ## Use
 *For example you could use the following code:*
-
-##Synopsis:
 
 ```javascript
 var obj = {
@@ -90,6 +88,7 @@ array
 	}
 ]
 ```
+
 If you set the second parameter <view> in boolean value True, you will get an alternate view.<br />
 
 *Result:*
