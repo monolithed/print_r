@@ -60,9 +60,10 @@ var print_r = function(data, view) {
 				var brace = [['{', '}'], ['[', ']']][array],
 					block = [brace[0], '\n'];
 
-				for (var i in data)
-					block.push(indent, this.get_view(i, array), build(data[i], indent + '\t'), ',', '\n');
-
+				for (var i in data) {
+					if (data.hasOwnProperty(i))
+						block.push(indent, this.get_view(i, array), build(data[i], indent + '\t'), ',', '\n');
+				}
 				block.splice(-2, 1);
 				this.output.push(block.join(''), indent, brace[1]);
 			}
@@ -70,4 +71,4 @@ var print_r = function(data, view) {
 	}(data);
 };
 
-//exports.print_r = print_r
+//exports.print_r = print_r;

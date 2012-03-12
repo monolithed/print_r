@@ -59,7 +59,8 @@ print_r = (data, view) ->
 				block = [brace[0], '\n']
 
 				for key, value of data
-					block.push indent, @get_view(key, array), build(value, "#{indent}\t"), ',', '\n'
+					if data.hasOwnProperty(key)
+						block.push indent, @get_view(key, array), build(value, "#{indent}\t"), ',', '\n'
 
 				block.splice -2, 1
 				@output.push block.join(''), indent, brace[1]
