@@ -16,7 +16,7 @@ string print_r (mixed object [, Boolean view = false])
 ```coffeescript
 print = require './print_r.coffee'
 
-obj =
+object =
 	number: 1,
 	object:
 		string: "text"
@@ -32,7 +32,7 @@ class Foo
 
 instance = new Foo "name"
 
-console.log print.print_r obj
+console.log print.print_r object
 console.log print.print_r [1, 2, instance]
 ```
 
