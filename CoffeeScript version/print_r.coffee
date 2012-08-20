@@ -29,8 +29,7 @@ print_r = (data, view) ->
 				else
 					@output.push {
 						'string': "'#{data}'"
-						'function': data.toString()
-							.replace(/\b.*\n/g, '\t\t\t$&').replace(/\}$/, '\t\t$&').replace /^\t*/, ''
+						'function': String(data).replace(/\b.*\n/g, '\t\t\t$&').replace(/\}$/, '\t\t$&').replace /^\t*/, ''
 					}[@type data] or data
 
 				@output.join ''
