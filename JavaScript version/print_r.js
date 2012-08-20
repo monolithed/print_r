@@ -72,4 +72,5 @@ var print_r = function(data, view) {
 	}(data);
 };
 
-exports.print_r = print_r;
+// server-side support
+try {exports.print_r = print_r; } catch (error) {}
