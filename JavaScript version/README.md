@@ -14,7 +14,7 @@ String print_r (Mixed object [, Boolean view = false])
 *For example you could use the following code:*
 
 ```javascript
-var obj = {
+var object = {
 	number: 1,
 	object: {
 		string: "text",
