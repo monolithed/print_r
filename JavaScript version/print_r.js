@@ -29,8 +29,8 @@ var print_r = function(data, view) {
 				else
 					this.output.push({
 						'string':   '"' + data + '"',
-						'function': data.toString().replace(/\b.*\n|\}$/g, '\t$&').replace(/^\t/, ' ')
-					}[this.type(data)] || data);
+						'function': String(data).replace(/\b.*\n|\}$/g, '\t$&').replace(/^\t/, ' ')
+					}[this.type(data)] || String(data));
 
 				return this.output.join('');
 			},
@@ -64,6 +64,7 @@ var print_r = function(data, view) {
 					if (data.hasOwnProperty(i))
 						block.push(indent, this.get_view(i, array), build(data[i], indent + '\t'), ',', '\n');
 				}
+
 				block.splice(-2, 1);
 				this.output.push(block.join(''), indent, brace[1]);
 			}
@@ -71,4 +72,4 @@ var print_r = function(data, view) {
 	}(data);
 };
 
-//exports.print_r = print_r;
+exports.print_r = print_r;
