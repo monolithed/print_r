@@ -67,4 +67,6 @@ print_r = (data, view) ->
 
 	build data
 
-exports.print_r = print_r
+
+# server-side support
+try exports.print_r = print_r
